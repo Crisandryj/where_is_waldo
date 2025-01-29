@@ -1,4 +1,5 @@
 import React from "react";
+import TargetBox from "./TargetBox";
 
 const App = () => {
   const [data, setData] = React.useState([]);
@@ -8,11 +9,12 @@ const App = () => {
       .then((data) => setData(data));
   }, []);
   return (
+    //   Characters
+    //   {data.map(({ name }) => (
+    //     <div>{name}</div>
+    //   ))}
     <div>
-      Characters
-      {data.map(({ name }) => (
-        <div>{name}</div>
-      ))}
+      <TargetBox />
     </div>
   );
 };
