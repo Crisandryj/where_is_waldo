@@ -14,10 +14,3 @@
  *= require_self
 
  */
-
-body {
-  background-image: url("wheres_waldo_img.jpeg");
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-  background-size: cover;
-}
