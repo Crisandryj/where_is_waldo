@@ -7,3 +7,6 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+
+Character.create([ { name: 'Test 1', location: 1.66 }, { name: 'Test 2', location: 1.55 } ])
