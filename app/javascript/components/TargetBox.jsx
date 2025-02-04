@@ -6,16 +6,17 @@ function TargetBox() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const styles = {
-    borderRadius: "100px",
+    borderRadius: "50%",
     position: "absolute",
     left: position.x,
     top: position.y,
     width: "150px",
     height: "150px",
-    border: "2px dotted",
+    border: "3px solid #000",
     backgroundColor: "",
+    backgroundRepeat: "no-repeat",
     backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: '(width * 3) + "px " + (height * 3) + "px"',
+    backgroundPosition: `left -${position.x}px top -${position.y}px `,
   };
 
   const handleDragStart = (e) => {
@@ -42,9 +43,7 @@ function TargetBox() {
       onMouseMove={handleDrag}
       onMouseUp={handleDragEnd}
       style={styles}
-    >
-      Drag me!
-    </div>
+    ></div>
   );
 }
 
