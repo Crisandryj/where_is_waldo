@@ -35,7 +35,7 @@ function TargetBox() {
   const handleDragEnd = () => {
     setIsDragging(false);
   };
-
+  console.log(position);
   return (
     <div
       className="target-box"
