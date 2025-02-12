@@ -5,39 +5,76 @@ import ButtonComponent from "./ButtonComponent";
 import { useEffect, useState } from "react";
 
 const App = () => {
-  const [showTarget, setShowTarget] = useState("false");
+  const [showTarget, setShowTarget] = useState(null);
 
-  const handleOnClick = () => {
-    if (showTarget == "true") {
-      console.log(showTarget);
-      setShowTarget("false");
-      console.log("active");
+  const handleCharOneClick = () => {
+    if (showTarget != "Character1") {
+      setShowTarget("Character1");
     } else {
-      console.log("active2s");
-      setShowTarget("true");
+      setShowTarget(null);
+    }
+  };
+
+  const handleCharTwoClick = () => {
+    if (showTarget != "Character2") {
+      setShowTarget("Character2");
+    } else {
+      setShowTarget(null);
+    }
+  };
+
+  const handleCharThreeClick = () => {
+    if (showTarget != "Character3") {
+      setShowTarget("Character3");
+    } else {
+      setShowTarget(null);
     }
   };
 
   const styles = {
     backgroundImage: `url(${backgroundImage})`,
-    backgroundPosition: "contain", // Adjust background position as needed
+    backgroundSize: "cover",
+    overflowX: "auto",
     minHeight: "100vh",
-    maxWidth: "100%",
+    width: "auto",
     backgroundRepeat: "no-repeat",
+
     // Add more styles as needed
   };
 
-  if (showTarget == "true") {
+  if (showTarget !== null) {
     return (
       <div style={styles}>
         <TargetBox />
-        <ButtonComponent HandleClick={handleOnClick} />
+        <ButtonComponent
+          HandleClick={handleCharOneClick}
+          text="Character One"
+        />
+        <ButtonComponent
+          HandleClick={handleCharTwoClick}
+          text="Character Two"
+        />
+        <ButtonComponent
+          HandleClick={handleCharThreeClick}
+          text="Character Three"
+        />
       </div>
     );
   } else {
     return (
       <div style={styles}>
-        <ButtonComponent HandleClick={handleOnClick} />
+        <ButtonComponent
+          HandleClick={handleCharOneClick}
+          text="Character One"
+        />
+        <ButtonComponent
+          HandleClick={handleCharOneClick}
+          text="Character Two"
+        />
+        <ButtonComponent
+          HandleClick={handleCharOneClick}
+          text="Character Three"
+        />
       </div>
     );
   }
