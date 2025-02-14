@@ -17,7 +17,6 @@ function TargetBox() {
     backgroundRepeat: "no-repeat",
     backgroundImage: `url(${backgroundImage})`,
     backgroundPosition: `left -${position.x}px top -${position.y}px `,
-    backgroundSize: "100vh",
   };
 
   const handleDragStart = (e) => {
@@ -36,7 +35,7 @@ function TargetBox() {
   const handleDragEnd = () => {
     setIsDragging(false);
   };
-  console.log(position);
+
   return (
     <div
       className="target-box"
