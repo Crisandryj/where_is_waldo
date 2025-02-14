@@ -75,7 +75,7 @@ const App = () => {
             HandleClick={handleCharOneClick}
             text="Character Three"
           />
-          <img src={waldoImage} alt="" />
+          <img src={waldoImage} alt="Where's Waldo?" />
         </div>
       </>
     );
