@@ -1,6 +1,6 @@
 import React from "react";
 import TargetBox from "./TargetBox";
-import backgroundImage from "../../assets/images/wheres_waldo_img.jpeg";
+import waldoImage from "../../assets/images/wheres_waldo_img.jpeg";
 import ButtonComponent from "./ButtonComponent";
 import { useEffect, useState } from "react";
 
@@ -32,50 +32,52 @@ const App = () => {
   };
 
   const styles = {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: "cover",
-    overflowX: "auto",
     minHeight: "100vh",
     width: "auto",
-    backgroundRepeat: "no-repeat",
 
     // Add more styles as needed
   };
 
   if (showTarget !== null) {
     return (
-      <div style={styles}>
-        <TargetBox />
-        <ButtonComponent
-          HandleClick={handleCharOneClick}
-          text="Character One"
-        />
-        <ButtonComponent
-          HandleClick={handleCharTwoClick}
-          text="Character Two"
-        />
-        <ButtonComponent
-          HandleClick={handleCharThreeClick}
-          text="Character Three"
-        />
-      </div>
+      <>
+        <div style={styles}>
+          <TargetBox />
+          <ButtonComponent
+            HandleClick={handleCharOneClick}
+            text="Character One"
+          />
+          <ButtonComponent
+            HandleClick={handleCharTwoClick}
+            text="Character Two"
+          />
+          <ButtonComponent
+            HandleClick={handleCharThreeClick}
+            text="Character Three"
+          />
+          <img src={waldoImage} alt="" />
+        </div>
+      </>
     );
   } else {
     return (
-      <div style={styles}>
-        <ButtonComponent
-          HandleClick={handleCharOneClick}
-          text="Character One"
-        />
-        <ButtonComponent
-          HandleClick={handleCharOneClick}
-          text="Character Two"
-        />
-        <ButtonComponent
-          HandleClick={handleCharOneClick}
-          text="Character Three"
-        />
-      </div>
+      <>
+        <div style={styles}>
+          <ButtonComponent
+            HandleClick={handleCharOneClick}
+            text="Character One"
+          />
+          <ButtonComponent
+            HandleClick={handleCharOneClick}
+            text="Character Two"
+          />
+          <ButtonComponent
+            HandleClick={handleCharOneClick}
+            text="Character Three"
+          />
+          <img src={waldoImage} alt="" />
+        </div>
+      </>
     );
   }
 };
