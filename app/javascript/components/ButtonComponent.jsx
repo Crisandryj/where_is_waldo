@@ -4,6 +4,7 @@ import { useRef } from "react";
 function Button(props) {
   const btnStyle = {
     width: "50px",
+    borderStyle: "dashed solid",
   };
   return (
     <input
