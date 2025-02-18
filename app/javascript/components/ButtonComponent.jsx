@@ -3,7 +3,8 @@ import { useRef } from "react";
 
 function Button(props) {
   const btnStyle = {
-    width: "50px",
+    height: "55px",
+    width: "55px",
     borderStyle: "dashed solid",
   };
   return (
