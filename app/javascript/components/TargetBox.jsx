@@ -30,6 +30,7 @@ function TargetBox() {
       y: e.clientY - e.target.offsetHeight / 2,
     };
     setPosition(newPosition);
+    console.log(newPosition);
   };
 
   const handleDragEnd = () => {
