@@ -41,12 +41,15 @@ const App = () => {
   };
 
   const btnStyle = {
+    border: "solid",
     display: "flex",
     flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     gap: "5px",
     position: "absolute",
     left: "10px",
-    top: "50px",
+    top: "15px",
   };
 
   if (showTarget !== null) {
