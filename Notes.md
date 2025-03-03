@@ -2,7 +2,7 @@
 
 # #DATABASE:
 
-1. Add Coordinates to database for each char
+1. Add Coordinates to database for each char - **Completed**
 
 ## PAGE:
 
