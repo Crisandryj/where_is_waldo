@@ -12,4 +12,4 @@
 Character.create([
 { name: 'Char 1', x: 857, y: 989 },
 { name: 'Char 2', x: 740, y: 675  },
-{ name: 'Char 3', x: 2243, y: 613 } ])
+{ name: 'Char 3', x: 2237, y: 601 } ])
