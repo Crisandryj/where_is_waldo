@@ -26,8 +26,8 @@ function TargetBox() {
   const handleDrag = (e) => {
     if (!isDragging) return;
     const newPosition = {
-      x: e.clientX - e.target.offsetWidth / 2,
-      y: e.clientY - e.target.offsetHeight / 2,
+      x: e.clientX + window.scrollX - e.target.offsetWidth / 2,
+      y: e.clientY + window.scrollY - e.target.offsetHeight / 2,
     };
     setPosition(newPosition);
     console.log(newPosition);
