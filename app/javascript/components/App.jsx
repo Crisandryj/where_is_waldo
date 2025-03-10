@@ -35,6 +35,14 @@ const App = () => {
     }
   };
 
+  const handleSubmission = () => {
+    if (showTarget != "Character3") {
+      setShowTarget("Character3");
+    } else {
+      setShowTarget(null);
+    }
+  };
+
   const styles = {
     display: "inline-block",
     position: "relative",
@@ -49,7 +57,7 @@ const App = () => {
     gap: "5px",
     position: "absolute",
     left: "10px",
-    top: "15px",
+    top: "55px",
   };
 
   if (showTarget !== null) {
@@ -57,10 +65,23 @@ const App = () => {
       <div style={styles}>
         <TargetBox />
         <img src={waldoImage} alt="" />
+
         <div style={btnStyle}>
-          <ButtonComponent HandleClick={handleCharOneClick} text={Char1} />
-          <ButtonComponent HandleClick={handleCharTwoClick} text={Char2} />
-          <ButtonComponent HandleClick={handleCharThreeClick} text={Char3} />
+          <ButtonComponent
+            HandleClick={handleCharOneClick}
+            text={Char1}
+            type={"image"}
+          />
+          <ButtonComponent
+            HandleClick={handleCharTwoClick}
+            text={Char2}
+            type={"image"}
+          />
+          <ButtonComponent
+            HandleClick={handleCharThreeClick}
+            text={Char3}
+            type={"image"}
+          />
         </div>
       </div>
     );
@@ -69,9 +90,21 @@ const App = () => {
       <div style={styles}>
         <img src={waldoImage} alt="Where's Waldo?" />
         <div style={btnStyle}>
-          <ButtonComponent HandleClick={handleCharOneClick} text={Char1} />
-          <ButtonComponent HandleClick={handleCharTwoClick} text={Char2} />
-          <ButtonComponent HandleClick={handleCharThreeClick} text={Char3} />
+          <ButtonComponent
+            HandleClick={handleCharOneClick}
+            text={Char1}
+            type={"image"}
+          />
+          <ButtonComponent
+            HandleClick={handleCharTwoClick}
+            text={Char2}
+            type={"image"}
+          />
+          <ButtonComponent
+            HandleClick={handleCharThreeClick}
+            text={Char3}
+            type={"image"}
+          />
         </div>
       </div>
     );
