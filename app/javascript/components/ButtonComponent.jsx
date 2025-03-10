@@ -10,8 +10,8 @@ function Button(props) {
   return (
     <input
       onClick={props.HandleClick}
-      type="image"
-      alt="Where's waldo?"
+      type={props.type}
+      alt={props.text}
       src={props.text}
       style={btnStyle}
     />
