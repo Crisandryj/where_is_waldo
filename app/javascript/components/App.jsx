@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 
 const App = () => {
   const [showTarget, setShowTarget] = useState(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const handleCharOneClick = (e) => {
     e.preventDefault();
@@ -36,11 +37,7 @@ const App = () => {
   };
 
   const handleSubmission = () => {
-    if (showTarget != "Character3") {
-      setShowTarget("Character3");
-    } else {
-      setShowTarget(null);
-    }
+    console.log(position);
   };
 
   const styles = {
@@ -63,10 +60,16 @@ const App = () => {
   if (showTarget !== null) {
     return (
       <div style={styles}>
-        <TargetBox />
+        <TargetBox position={position} setPosition={setPosition} />
         <img src={waldoImage} alt="" />
 
         <div style={btnStyle}>
+          <ButtonComponent
+            HandleClick={handleSubmission}
+            text={"Submit"}
+            src={Char1}
+            type={"button"}
+          />
           <ButtonComponent
             HandleClick={handleCharOneClick}
             text={Char1}
@@ -92,6 +95,7 @@ const App = () => {
     return (
       <div style={styles}>
         <img src={waldoImage} alt="Where's Waldo?" />
+
         <div style={btnStyle}>
           <ButtonComponent
             HandleClick={handleCharOneClick}

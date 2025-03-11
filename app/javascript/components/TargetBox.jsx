@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import backgroundImage from "../../assets/images/wheres_waldo_img.jpeg";
 
-function TargetBox() {
+function TargetBox({ position, setPosition }) {
   const [isDragging, setIsDragging] = useState(false);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const styles = {
     borderRadius: "50%",
@@ -30,7 +29,6 @@ function TargetBox() {
       y: e.clientY + window.scrollY - e.target.offsetHeight / 2,
     };
     setPosition(newPosition);
-    console.log(newPosition);
   };
 
   const handleDragEnd = () => {
