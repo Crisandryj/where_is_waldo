@@ -12,7 +12,7 @@ function Button(props) {
       onClick={props.HandleClick}
       type={props.type}
       alt={props.text}
-      src={props.text}
+      src={props.src}
       style={btnStyle}
     />
   );
