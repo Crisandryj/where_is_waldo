@@ -70,16 +70,19 @@ const App = () => {
           <ButtonComponent
             HandleClick={handleCharOneClick}
             text={Char1}
+            src={Char1}
             type={"image"}
           />
           <ButtonComponent
             HandleClick={handleCharTwoClick}
             text={Char2}
+            src={Char2}
             type={"image"}
           />
           <ButtonComponent
             HandleClick={handleCharThreeClick}
             text={Char3}
+            src={Char3}
             type={"image"}
           />
         </div>
@@ -93,16 +96,19 @@ const App = () => {
           <ButtonComponent
             HandleClick={handleCharOneClick}
             text={Char1}
+            src={Char1}
             type={"image"}
           />
           <ButtonComponent
             HandleClick={handleCharTwoClick}
             text={Char2}
+            src={Char2}
             type={"image"}
           />
           <ButtonComponent
             HandleClick={handleCharThreeClick}
             text={Char3}
+            src={Char3}
             type={"image"}
           />
         </div>
