@@ -5,7 +5,7 @@ import Char1 from "../../assets/images/Char1.png";
 import Char2 from "../../assets/images/Char2.png";
 import Char3 from "../../assets/images/Char3.png";
 import ButtonComponent from "./ButtonComponent";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const App = () => {
   const [showTarget, setShowTarget] = useState(null);
