@@ -5,7 +5,7 @@ import Char1 from "../../assets/images/Char1.png";
 import Char2 from "../../assets/images/Char2.png";
 import Char3 from "../../assets/images/Char3.png";
 import ButtonComponent from "./ButtonComponent";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const App = () => {
   const [showTarget, setShowTarget] = useState(null);
@@ -37,7 +37,10 @@ const App = () => {
   };
 
   const handleSubmission = () => {
-    console.log(position);
+    fetch("http://localhost:3000/api/v1/characters", { mode: "cors" })
+      .then((response) => response.json())
+      .then((response) => console.log(response))
+      .catch((error) => console.error(error));
   };
 
   const styles = {
