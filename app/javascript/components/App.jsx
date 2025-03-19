@@ -10,6 +10,7 @@ import { useState, useEffect } from "react";
 const App = () => {
   const [showTarget, setShowTarget] = useState(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [charsPos, setCharsPos] = useState({});
 
   const handleCharOneClick = (e) => {
     e.preventDefault();
@@ -36,11 +37,24 @@ const App = () => {
     }
   };
 
-  const handleSubmission = () => {
+  useEffect(() => {
     fetch("http://localhost:3000/api/v1/characters", { mode: "cors" })
       .then((response) => response.json())
-      .then((response) => console.log(response))
+      .then((response) => setCharsPos(response))
       .catch((error) => console.error(error));
+  }, []);
+
+  const handleSubmission = () => {
+    console.log(charsPos);
+    switch (showTarget) {
+      case "Character1":
+        break;
+      case "Character2":
+        break;
+      case "Character3":
+        break;
+      default:
+    }
   };
 
   const styles = {
