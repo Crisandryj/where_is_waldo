@@ -10,6 +10,8 @@ import { useState, useEffect } from "react";
 const App = () => {
   const [showTarget, setShowTarget] = useState(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
   const [charsPos, setCharsPos] = useState({});
 
   const handleCharOneClick = (e) => {
