@@ -43,7 +43,8 @@ const App = () => {
     fetch("http://localhost:3000/api/v1/characters", { mode: "cors" })
       .then((response) => response.json())
       .then((response) => setCharsPos(response))
-      .catch((error) => console.error(error));
+      .catch((error) => setError(error))
+      .finally(() => setLoading(false));
   }, []);
 
   const handleSubmission = () => {
@@ -76,6 +77,8 @@ const App = () => {
     top: "55px",
   };
 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>A network error was encountered</p>;
   if (showTarget !== null) {
     return (
       <div style={styles}>
