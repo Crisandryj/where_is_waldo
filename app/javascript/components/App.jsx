@@ -47,8 +47,8 @@ const App = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  function isWithin10(num, target) {
-    return num >= target - 10 && num <= target + 10;
+  function isWithin5(num, target) {
+    return num >= target - 5 && num <= target + 5;
   }
 
   const handleSubmission = () => {
@@ -56,21 +56,30 @@ const App = () => {
     console.log(position);
     switch (showTarget) {
       case "Character1":
-        if (charsPos[0].x == position.x && charsPos[0].y == position.y)
+        if (
+          isWithin5(charsPos[0].x, position.x) &&
+          isWithin5(charsPos[0].y, position.y)
+        )
           console.log("got em");
         else {
           console.log("try again");
         }
         break;
       case "Character2":
-        if (charsPos[1].x == position.x && charsPos[1].y == position.y)
+        if (
+          isWithin5(charsPos[1].x, position.x) &&
+          isWithin5(charsPos[1].y, position.y)
+        )
           console.log("got em");
         else {
           console.log("try again");
         }
         break;
       case "Character3":
-        if (charsPos[2].x == position.x && charsPos[2].y == position.y)
+        if (
+          isWithin5(charsPos[2].x, position.x) &&
+          isWithin5(charsPos[2].y, position.y)
+        )
           console.log("got em");
         else {
           console.log("try again");
