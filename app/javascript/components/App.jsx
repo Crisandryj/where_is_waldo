@@ -4,6 +4,7 @@ import waldoImage from "../../assets/images/wheres_waldo_img.jpeg";
 import Char1 from "../../assets/images/Char1.png";
 import Char2 from "../../assets/images/Char2.png";
 import Char3 from "../../assets/images/Char3.png";
+import Check from "../../assets/images/check.png";
 import ButtonComponent from "./ButtonComponent";
 import { useState, useEffect } from "react";
 
@@ -105,6 +106,12 @@ const App = () => {
     left: "10px",
     top: "55px",
   };
+  const checkStyleChar2 = {
+    display: "inline-block",
+    position: "relative",
+    left: "741px",
+    top: "705px",
+  };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error was encountered</p>;
@@ -146,6 +153,7 @@ const App = () => {
   } else {
     return (
       <div style={styles}>
+        <img src={Check} alt="check" style={checkStyleChar2} />
         <img src={waldoImage} alt="Where's Waldo?" />
 
         <div style={btnStyle}>
