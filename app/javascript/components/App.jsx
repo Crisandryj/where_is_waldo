@@ -4,7 +4,7 @@ import waldoImage from "../../assets/images/wheres_waldo_img.jpeg";
 import Char1 from "../../assets/images/Char1.png";
 import Char2 from "../../assets/images/Char2.png";
 import Char3 from "../../assets/images/Char3.png";
-import Check from "../../assets/images/check.png";
+import GreenCheck from "../../assets/images/check.png";
 import ButtonComponent from "./ButtonComponent";
 import { useState, useEffect } from "react";
 
@@ -153,7 +153,7 @@ const App = () => {
   } else {
     return (
       <div style={styles}>
-        <img src={Check} alt="check" style={checkStyleChar2} />
+        <img src={GreenCheck} alt="check" style={checkStyleChar2} />
         <img src={waldoImage} alt="Where's Waldo?" />
 
         <div style={btnStyle}>
