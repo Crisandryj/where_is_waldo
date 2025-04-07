@@ -14,6 +14,7 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [charsPos, setCharsPos] = useState({});
+  const [char2IsFound, setChar2IsFound] = useState(false);
 
   const handleCharOneClick = (e) => {
     e.preventDefault();
@@ -70,9 +71,11 @@ const App = () => {
         if (
           isWithin5(charsPos[1].x, position.x) &&
           isWithin5(charsPos[1].y, position.y)
-        )
+        ) {
           console.log("got em");
-        else {
+          setChar2IsFound(true);
+          console.log(char2IsFound);
+        } else {
           console.log("try again");
         }
         break;
@@ -120,6 +123,9 @@ const App = () => {
     return (
       <div style={styles}>
         <TargetBox position={position} setPosition={setPosition} />
+        {char2IsFound && (
+          <img src={GreenCheck} alt="check" style={checkStyleChar2} />
+        )}
         <img src={waldoImage} alt="" />
 
         <div style={btnStyle}>
@@ -153,7 +159,9 @@ const App = () => {
   } else {
     return (
       <div style={styles}>
-        <img src={GreenCheck} alt="check" style={checkStyleChar2} />
+        {char2IsFound && (
+          <img src={GreenCheck} alt="check" style={checkStyleChar2} />
+        )}
         <img src={waldoImage} alt="Where's Waldo?" />
 
         <div style={btnStyle}>
