@@ -14,7 +14,9 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [charsPos, setCharsPos] = useState({});
+  const [char1IsFound, setChar1IsFound] = useState(false);
   const [char2IsFound, setChar2IsFound] = useState(false);
+  const [char3IsFound, setChar3IsFound] = useState(false);
 
   const handleCharOneClick = (e) => {
     e.preventDefault();
