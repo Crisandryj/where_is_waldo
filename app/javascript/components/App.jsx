@@ -63,9 +63,11 @@ const App = () => {
         if (
           isWithin5(charsPos[0].x, position.x) &&
           isWithin5(charsPos[0].y, position.y)
-        )
+        ) {
           console.log("got em");
-        else {
+          setChar1IsFound(true);
+          console.log(char1IsFound);
+        } else {
           console.log("try again");
         }
         break;
@@ -85,9 +87,11 @@ const App = () => {
         if (
           isWithin5(charsPos[2].x, position.x) &&
           isWithin5(charsPos[2].y, position.y)
-        )
+        ) {
           console.log("got em");
-        else {
+          setChar3IsFound(true);
+          console.log(char3IsFound);
+        } else {
           console.log("try again");
         }
         break;
