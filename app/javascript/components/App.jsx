@@ -56,7 +56,6 @@ const App = () => {
   }
 
   const handleSubmission = () => {
-    console.log(charsPos[1].x);
     console.log(position);
     switch (showTarget) {
       case "Character1":
@@ -89,10 +88,11 @@ const App = () => {
           isWithin5(charsPos[2].y, position.y)
         ) {
           console.log("got em");
+          console.log(charsPos);
           setChar3IsFound(true);
           console.log(char3IsFound);
         } else {
-          console.log("try again");
+          console.log("try again 3 ");
         }
         break;
       default:
@@ -116,10 +116,9 @@ const App = () => {
     top: "55px",
   };
   const checkStyleChar2 = {
-    display: "inline-block",
     position: "relative",
     left: "741px",
-    top: "705px",
+    bottom: "1156px",
   };
 
   if (loading) return <p>Loading...</p>;
@@ -129,11 +128,10 @@ const App = () => {
     return (
       <div style={styles}>
         <TargetBox position={position} setPosition={setPosition} />
+        <img src={waldoImage} alt="" />
         {char2IsFound && (
           <img src={GreenCheck} alt="check" style={checkStyleChar2} />
         )}
-        <img src={waldoImage} alt="" />
-
         <div style={btnStyle}>
           <ButtonComponent
             HandleClick={handleSubmission}
