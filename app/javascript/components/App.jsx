@@ -51,8 +51,8 @@ const App = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  function isWithin5(num, target) {
-    return num >= target - 5 && num <= target + 5;
+  function isWithin15(num, target) {
+    return num >= target - 15 && num <= target + 15;
   }
 
   const handleSubmission = () => {
@@ -60,8 +60,8 @@ const App = () => {
     switch (showTarget) {
       case "Character1":
         if (
-          isWithin5(charsPos[0].x, position.x) &&
-          isWithin5(charsPos[0].y, position.y)
+          isWithin15(charsPos[0].x, position.x) &&
+          isWithin15(charsPos[0].y, position.y)
         ) {
           console.log("got em");
           setChar1IsFound(true);
@@ -72,8 +72,8 @@ const App = () => {
         break;
       case "Character2":
         if (
-          isWithin5(charsPos[1].x, position.x) &&
-          isWithin5(charsPos[1].y, position.y)
+          isWithin15(charsPos[1].x, position.x) &&
+          isWithin15(charsPos[1].y, position.y)
         ) {
           console.log("got em");
           setChar2IsFound(true);
@@ -84,13 +84,10 @@ const App = () => {
         break;
       case "Character3":
         if (
-          isWithin5(charsPos[2].x, position.x) &&
-          isWithin5(charsPos[2].y, position.y)
+          isWithin15(charsPos[2].x, position.x) &&
+          isWithin15(charsPos[2].y, position.y)
         ) {
-          console.log("got em");
-          console.log(charsPos);
           setChar3IsFound(true);
-          console.log(char3IsFound);
         } else {
           console.log("try again 3 ");
         }
@@ -115,10 +112,22 @@ const App = () => {
     left: "10px",
     top: "55px",
   };
+  const checkStyleChar1 = {
+    position: "relative",
+    left: "845px",
+    bottom: "850px",
+  };
+
   const checkStyleChar2 = {
     position: "relative",
-    left: "741px",
+    left: "857",
     bottom: "1156px",
+  };
+
+  const checkStyleChar3 = {
+    position: "relative",
+    right: "-2237px",
+    bottom: "1222px",
   };
 
   if (loading) return <p>Loading...</p>;
@@ -129,8 +138,14 @@ const App = () => {
       <div style={styles}>
         <TargetBox position={position} setPosition={setPosition} />
         <img src={waldoImage} alt="" />
+        {char1IsFound && (
+          <img src={GreenCheck} alt="check" style={checkStyleChar1} />
+        )}
         {char2IsFound && (
           <img src={GreenCheck} alt="check" style={checkStyleChar2} />
+        )}
+        {char3IsFound && (
+          <img src={GreenCheck} alt="check" style={checkStyleChar3} />
         )}
         <div style={btnStyle}>
           <ButtonComponent
@@ -163,11 +178,16 @@ const App = () => {
   } else {
     return (
       <div style={styles}>
+        <img src={waldoImage} alt="Where's Waldo?" />
+        {char1IsFound && (
+          <img src={GreenCheck} alt="check" style={checkStyleChar1} />
+        )}
         {char2IsFound && (
           <img src={GreenCheck} alt="check" style={checkStyleChar2} />
         )}
-        <img src={waldoImage} alt="Where's Waldo?" />
-
+        {char3IsFound && (
+          <img src={GreenCheck} alt="check" style={checkStyleChar3} />
+        )}
         <div style={btnStyle}>
           <ButtonComponent
             HandleClick={handleCharOneClick}
