@@ -120,14 +120,14 @@ const App = () => {
 
   const checkStyleChar2 = {
     position: "relative",
-    left: "857",
-    bottom: "1156px",
+    right: "-700px",
+    bottom: "1166px",
   };
 
   const checkStyleChar3 = {
     position: "relative",
-    right: "-2237px",
-    bottom: "1222px",
+    right: "-2137px",
+    bottom: "1212px",
   };
 
   if (loading) return <p>Loading...</p>;
