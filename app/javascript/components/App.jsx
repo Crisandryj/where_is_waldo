@@ -56,7 +56,6 @@ const App = () => {
   }
 
   const handleSubmission = () => {
-    console.log(position);
     switch (showTarget) {
       case "Character1":
         if (
