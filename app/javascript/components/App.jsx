@@ -14,9 +14,9 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [charsPos, setCharsPos] = useState({});
-  const [char1IsFound, setChar1IsFound] = useState(false);
-  const [char2IsFound, setChar2IsFound] = useState(false);
-  const [char3IsFound, setChar3IsFound] = useState(false);
+  const [char1IsFound, setChar1IsFound] = useState(true);
+  const [char2IsFound, setChar2IsFound] = useState(true);
+  const [char3IsFound, setChar3IsFound] = useState(true);
 
   const handleCharOneClick = (e) => {
     e.preventDefault();
@@ -136,7 +136,9 @@ const App = () => {
     return (
       <div style={styles}>
         <TargetBox position={position} setPosition={setPosition} />
+
         <img src={waldoImage} alt="" />
+
         {char1IsFound && (
           <img src={GreenCheck} alt="check" style={checkStyleChar1} />
         )}
@@ -146,6 +148,7 @@ const App = () => {
         {char3IsFound && (
           <img src={GreenCheck} alt="check" style={checkStyleChar3} />
         )}
+
         <div style={btnStyle}>
           <ButtonComponent
             HandleClick={handleSubmission}
