@@ -6,6 +6,7 @@ import Char2 from "../../assets/images/Char2.png";
 import Char3 from "../../assets/images/Char3.png";
 import GreenCheck from "../../assets/images/check.png";
 import ButtonComponent from "./ButtonComponent";
+import Timer from "./Timer";
 import { useState, useEffect } from "react";
 
 const App = () => {
@@ -181,6 +182,7 @@ const App = () => {
     return (
       <div style={styles}>
         <img src={waldoImage} alt="Where's Waldo?" />
+
         {char1IsFound && (
           <img src={GreenCheck} alt="check" style={checkStyleChar1} />
         )}
@@ -190,6 +192,7 @@ const App = () => {
         {char3IsFound && (
           <img src={GreenCheck} alt="check" style={checkStyleChar3} />
         )}
+
         <div style={btnStyle}>
           <ButtonComponent
             HandleClick={handleCharOneClick}
