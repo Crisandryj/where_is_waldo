@@ -6,6 +6,7 @@ import Char2 from "../../assets/images/Char2.png";
 import Char3 from "../../assets/images/Char3.png";
 import GreenCheck from "../../assets/images/check.png";
 import ButtonComponent from "./ButtonComponent";
+import Dropdown from "./DropDown";
 import Timer from "./Timer";
 import { useState, useEffect } from "react";
 
