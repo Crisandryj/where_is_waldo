@@ -7,7 +7,7 @@ function Timer() {
 
   useEffect(() => {
     let intervalId;
-
+    // setInternal to delay 1000 milliseconds ( 1 second ) before adding 1 to var prevSeconds
     if (isActive) {
       intervalId = setInterval(() => {
         setSeconds((prevSeconds) => prevSeconds + 1);
