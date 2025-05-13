@@ -139,7 +139,7 @@ const App = () => {
       <div style={styles}>
         <TargetBox position={position} setPosition={setPosition} />
 
-        <img src={waldoImage} alt="" />
+        <img className="mainImg" src={waldoImage} alt="" />
 
         {char1IsFound && (
           <img src={GreenCheck} alt="check" style={checkStyleChar1} />
@@ -182,7 +182,7 @@ const App = () => {
   } else {
     return (
       <div style={styles}>
-        <img src={waldoImage} alt="Where's Waldo?" />
+        <img className="mainImg" src={waldoImage} alt="Where's Waldo?" />
 
         {char1IsFound && (
           <img src={GreenCheck} alt="check" style={checkStyleChar1} />
