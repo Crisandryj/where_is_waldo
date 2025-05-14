@@ -8,9 +8,10 @@ import GreenCheck from "../../assets/images/check.png";
 import ButtonComponent from "./ButtonComponent";
 import Dropdown from "./DropDown";
 import Timer from "./Timer";
-import { useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const App = () => {
+  const imageRef = useRef(null);
   const [showTarget, setShowTarget] = useState(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [loading, setLoading] = useState(true);
@@ -137,9 +138,13 @@ const App = () => {
   if (showTarget !== null) {
     return (
       <div style={styles}>
-        <TargetBox position={position} setPosition={setPosition} />
+        <TargetBox
+          imageRef={imageRef}
+          position={position}
+          setPosition={setPosition}
+        />
 
-        <img className="mainImg" src={waldoImage} alt="" />
+        <img ref={imageRef} className="mainImg" src={waldoImage} alt="" />
 
         {char1IsFound && (
           <img src={GreenCheck} alt="check" style={checkStyleChar1} />
@@ -182,7 +187,12 @@ const App = () => {
   } else {
     return (
       <div style={styles}>
-        <img className="mainImg" src={waldoImage} alt="Where's Waldo?" />
+        <img
+          ref={imageRef}
+          className="mainImg"
+          src={waldoImage}
+          alt="Where's Waldo?"
+        />
 
         {char1IsFound && (
           <img src={GreenCheck} alt="check" style={checkStyleChar1} />
