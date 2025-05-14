@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import backgroundImage from "../../assets/images/wheres_waldo_img.jpeg";
 
-function TargetBox({ position, setPosition }) {
+function TargetBox({ position, setPosition, imageRef }) {
   const [isDragging, setIsDragging] = useState(false);
 
   const styles = {
@@ -23,10 +23,11 @@ function TargetBox({ position, setPosition }) {
   };
 
   const handleDrag = (e) => {
+    const rect = imageRef.current.getBoundingClientRect();
     if (!isDragging) return;
     const newPosition = {
-      x: e.clientX + window.scrollX - e.target.offsetWidth / 2,
-      y: e.clientY + window.scrollY - e.target.offsetHeight / 2,
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
     };
     setPosition(newPosition);
   };
