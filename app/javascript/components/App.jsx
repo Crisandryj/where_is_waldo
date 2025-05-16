@@ -135,98 +135,56 @@ const App = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error was encountered</p>;
 
-  if (showTarget !== null) {
-    return (
-      <div style={styles}>
+  return (
+    <div style={styles}>
+      {showTarget && (
         <TargetBox
           imageRef={imageRef}
           position={position}
           setPosition={setPosition}
         />
+      )}
 
-        <img ref={imageRef} className="mainImg" src={waldoImage} alt="" />
+      <img ref={imageRef} className="mainImg" src={waldoImage} alt="" />
 
-        {char1IsFound && (
-          <img src={GreenCheck} alt="check" style={checkStyleChar1} />
-        )}
-        {char2IsFound && (
-          <img src={GreenCheck} alt="check" style={checkStyleChar2} />
-        )}
-        {char3IsFound && (
-          <img src={GreenCheck} alt="check" style={checkStyleChar3} />
-        )}
+      {char1IsFound && (
+        <img src={GreenCheck} alt="check" style={checkStyleChar1} />
+      )}
+      {char2IsFound && (
+        <img src={GreenCheck} alt="check" style={checkStyleChar2} />
+      )}
+      {char3IsFound && (
+        <img src={GreenCheck} alt="check" style={checkStyleChar3} />
+      )}
 
-        <div style={btnStyle}>
-          <ButtonComponent
-            HandleClick={handleSubmission}
-            text={"Submit"}
-            src={Char1}
-            type={"button"}
-          />
-          <ButtonComponent
-            HandleClick={handleCharOneClick}
-            text={Char1}
-            src={Char1}
-            type={"image"}
-          />
-          <ButtonComponent
-            HandleClick={handleCharTwoClick}
-            text={Char2}
-            src={Char2}
-            type={"image"}
-          />
-          <ButtonComponent
-            HandleClick={handleCharThreeClick}
-            text={Char3}
-            src={Char3}
-            type={"image"}
-          />
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div style={styles}>
-        <img
-          ref={imageRef}
-          className="mainImg"
-          src={waldoImage}
-          alt="Where's Waldo?"
+      <div style={btnStyle}>
+        <ButtonComponent
+          HandleClick={handleSubmission}
+          text={"Submit"}
+          src={Char1}
+          type={"button"}
         />
-
-        {char1IsFound && (
-          <img src={GreenCheck} alt="check" style={checkStyleChar1} />
-        )}
-        {char2IsFound && (
-          <img src={GreenCheck} alt="check" style={checkStyleChar2} />
-        )}
-        {char3IsFound && (
-          <img src={GreenCheck} alt="check" style={checkStyleChar3} />
-        )}
-
-        <div style={btnStyle}>
-          <ButtonComponent
-            HandleClick={handleCharOneClick}
-            text={Char1}
-            src={Char1}
-            type={"image"}
-          />
-          <ButtonComponent
-            HandleClick={handleCharTwoClick}
-            text={Char2}
-            src={Char2}
-            type={"image"}
-          />
-          <ButtonComponent
-            HandleClick={handleCharThreeClick}
-            text={Char3}
-            src={Char3}
-            type={"image"}
-          />
-        </div>
+        <ButtonComponent
+          HandleClick={handleCharOneClick}
+          text={Char1}
+          src={Char1}
+          type={"image"}
+        />
+        <ButtonComponent
+          HandleClick={handleCharTwoClick}
+          text={Char2}
+          src={Char2}
+          type={"image"}
+        />
+        <ButtonComponent
+          HandleClick={handleCharThreeClick}
+          text={Char3}
+          src={Char3}
+          type={"image"}
+        />
       </div>
-    );
-  }
+    </div>
+  );
 };
 
 export default App;
