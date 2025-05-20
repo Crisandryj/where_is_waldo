@@ -24,12 +24,14 @@ function TargetBox({ position, setPosition, imageRef }) {
 
   const handleDrag = (e) => {
     const rect = imageRef.current.getBoundingClientRect();
+    console.log(rect);
     if (!isDragging) return;
     const newPosition = {
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
     };
     setPosition(newPosition);
+    console.log(newPosition);
   };
 
   const handleDragEnd = () => {
