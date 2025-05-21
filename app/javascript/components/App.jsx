@@ -13,7 +13,13 @@ import { useRef, useState, useEffect } from "react";
 const App = () => {
   const imageRef = useRef(null);
   const [showTarget, setShowTarget] = useState(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [magnifierVisible, setMagnifierVisible] = useState(false);
+  const [position, setPosition] = useState({
+    imageX: 0,
+    imageY: 0,
+    clientX: 0,
+    clientY: 0,
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [charsPos, setCharsPos] = useState({});
@@ -135,17 +141,47 @@ const App = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>A network error was encountered</p>;
 
+  function handleMouseMove(e) {
+    const rect = imageRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const scaleX = imageRef.current.naturalWidth / rect.width;
+    const scaleY = imageRef.current.naturalHeight / rect.height;
+
+    const imageX = x * scaleX;
+    const imageY = y * scaleY;
+
+    setPosition({
+      imageX,
+      imageY,
+      clientX: e.clientX,
+      clientY: e.clientY,
+    });
+  }
+
   return (
-    <div style={styles}>
+    <div
+      style={{ position: "relative" }}
+      onMouseLeave={() => setMagnifierVisible(false)}
+    >
+      <div style={styles}></div>
       {showTarget && (
         <TargetBox
           imageRef={imageRef}
           position={position}
           setPosition={setPosition}
+          magnifierVisible={magnifierVisible}
         />
       )}
-
-      <img ref={imageRef} className="mainImg" src={waldoImage} alt="" />
+      <img
+        ref={imageRef}
+        className="mainImg"
+        src={waldoImage}
+        onMouseMove={handleMouseMove}
+        onMouseEnter={() => setMagnifierVisible(true)}
+        alt="Find Waldo"
+      />
 
       {char1IsFound && (
         <img src={GreenCheck} alt="check" style={checkStyleChar1} />
@@ -156,7 +192,6 @@ const App = () => {
       {char3IsFound && (
         <img src={GreenCheck} alt="check" style={checkStyleChar3} />
       )}
-
       <div style={btnStyle}>
         <ButtonComponent
           HandleClick={handleSubmission}

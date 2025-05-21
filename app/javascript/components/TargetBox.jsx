@@ -1,51 +1,33 @@
 import React, { useState } from "react";
 import backgroundImage from "../../assets/images/wheres_waldo_img.jpeg";
 
-function TargetBox({ position, setPosition, imageRef }) {
-  const [isDragging, setIsDragging] = useState(false);
-
-  const styles = {
-    borderRadius: "50%",
-    position: "absolute",
-    left: position.x,
-    top: position.y,
-    width: "50px",
-    height: "50px",
-    border: "3px solid #000",
-    backgroundColor: "",
-    backgroundRepeat: "no-repeat",
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundPosition: `left -${position.x}px top -${position.y}px `,
-  };
-
-  const handleDragStart = (e) => {
-    setIsDragging(true);
-  };
-
-  const handleDrag = (e) => {
-    const rect = imageRef.current.getBoundingClientRect();
-    console.log(rect);
-    if (!isDragging) return;
-    const newPosition = {
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    };
-    setPosition(newPosition);
-    console.log(newPosition);
-  };
-
-  const handleDragEnd = () => {
-    setIsDragging(false);
-  };
-
+function TargetBox({ position, magnifierVisible, imageRef }) {
   return (
-    <div
-      className="target-box"
-      onMouseDown={handleDragStart}
-      onMouseMove={handleDrag}
-      onMouseUp={handleDragEnd}
-      style={styles}
-    ></div>
+    <div>
+      {magnifierVisible && (
+        <div
+          className="magnifier"
+          style={{
+            position: "absolute",
+            pointerEvents: "none",
+            width: "150px",
+            height: "150px",
+            borderRadius: "50%",
+            border: "2px solid #000",
+            backgroundImage: `url(${backgroundImage})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: `${imageRef.current?.naturalWidth * 2}px ${
+              imageRef.current?.naturalHeight * 2
+            }px`, // 2x zoom
+            backgroundPosition: `-${position.imageX * 2 - 75}px -${
+              position.imageY * 2 - 75
+            }px`,
+            top: position.clientY - 75,
+            left: position.clientX - 75,
+          }}
+        />
+      )}
+    </div>
   );
 }
 
