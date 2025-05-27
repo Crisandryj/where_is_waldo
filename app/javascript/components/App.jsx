@@ -20,6 +20,7 @@ const App = () => {
     clientX: 0,
     clientY: 0,
   });
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [charsPos, setCharsPos] = useState({});
@@ -109,17 +110,6 @@ const App = () => {
     position: "relative",
   };
 
-  const btnStyle = {
-    border: "solid",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: "5px",
-    position: "absolute",
-    left: "10px",
-    top: "55px",
-  };
   const checkStyleChar1 = {
     position: "relative",
     left: "845px",
@@ -192,7 +182,7 @@ const App = () => {
       {char3IsFound && (
         <img src={GreenCheck} alt="check" style={checkStyleChar3} />
       )}
-      <div style={btnStyle}>
+      <div className="btns">
         <ButtonComponent
           HandleClick={handleSubmission}
           text={"Submit"}
