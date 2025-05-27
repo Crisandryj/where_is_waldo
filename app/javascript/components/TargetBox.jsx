@@ -16,8 +16,8 @@ function TargetBox({ position, magnifierVisible, imageRef }) {
             border: "2px solid #000",
             backgroundImage: `url(${backgroundImage})`,
             backgroundRepeat: "no-repeat",
-            backgroundSize: `${imageRef.current?.naturalWidth * 2}px ${
-              imageRef.current?.naturalHeight * 2
+            backgroundSize: `${imageRef.current.naturalWidth * 2}px ${
+              imageRef.current.naturalHeight * 2
             }px`, // 2x zoom
             backgroundPosition: `-${position.imageX * 2 - 75}px -${
               position.imageY * 2 - 75
