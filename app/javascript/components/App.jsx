@@ -182,32 +182,35 @@ const App = () => {
       {char3IsFound && (
         <img src={GreenCheck} alt="check" style={checkStyleChar3} />
       )}
-      <div className="btns">
-        <ButtonComponent
-          HandleClick={handleSubmission}
-          text={"Submit"}
-          src={Char1}
-          type={"button"}
-        />
-        <ButtonComponent
-          HandleClick={handleCharOneClick}
-          text={Char1}
-          src={Char1}
-          type={"image"}
-        />
-        <ButtonComponent
-          HandleClick={handleCharTwoClick}
-          text={Char2}
-          src={Char2}
-          type={"image"}
-        />
-        <ButtonComponent
-          HandleClick={handleCharThreeClick}
-          text={Char3}
-          src={Char3}
-          type={"image"}
-        />
-      </div>
+
+      <Dropdown
+        options={[
+          <ButtonComponent
+            HandleClick={handleSubmission}
+            text={"Submit"}
+            src={Char1}
+            type={"button"}
+          />,
+          <ButtonComponent
+            HandleClick={handleCharOneClick}
+            text={Char1}
+            src={Char1}
+            type={"image"}
+          />,
+          <ButtonComponent
+            HandleClick={handleCharTwoClick}
+            text={Char2}
+            src={Char2}
+            type={"image"}
+          />,
+          <ButtonComponent
+            HandleClick={handleCharThreeClick}
+            text={Char3}
+            src={Char3}
+            type={"image"}
+          />,
+        ]}
+      />
     </div>
   );
 };
